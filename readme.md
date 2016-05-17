@@ -1,5 +1,3 @@
-> Please read our slide creation guidelines in [the wiki](https://github.com/girldevelopit/gdi-slides-template/wiki). Then, delete this banner and add the specifics about your class below.
-
 # Intro to Node.js
 
 Slides and materials are hosted at [https://gdiphilly.github.io/Intro-to-Node.js/](https://gdiphilly.github.io/Intro-to-Node.js/).
