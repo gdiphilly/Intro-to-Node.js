@@ -79,11 +79,12 @@
                   </div>
                 </section>
                 <section>
-                    <h1>Server theory</h1>
+                    <h1>Server-side?</h1>
                 </section>
                 <section>
                   <h3>Clients and servers</h3>
                   <p>How your computer accesses websites</p>
+                  <p>But ALSO how computers talk to <em>each other</em></p>
                   <img src = "img/client-server.png"/>
                   <strike><p class = "fragment">JavaScript (in our context) is "client side"</p></strike>
                   <p class = "fragment">You can run JavaScript on the server with the help of Node.js!</p>
@@ -96,420 +97,205 @@
                         <li>Non-blocking</li>
                     </ul>
                 </section>
-<section>
-    Place in tech stack
-</section>
-<section>
-    Pros/Cons of Node
-</section>
-<section>
-    When to use Node
-</section>
-<section>
-    MEAN
-</section>
-<section>
-    Install node 
-npm init --yes
-Confirm that both node and npm are installed
-node -v
-npm -v
-    Run a local Javascript file from command-line to confirm node is running
-
-</section>
-<section>
-    What's npm?
-</section>
-<section>
-    “node package manager”
-module ecosystem
-largest ecosystem of open source libraries in the world
-</section>
-<section>
-    <h1>NPM modules</h1>
-
-    <h3>Some examples</h3>
-    <ul>
-        <li>tape</li>
-        <li>webpack</li>
-        <li>yeoman</li>
-    </ul>
-</section>
-<section>
-    npm init
-</section>
-<section>
-    What's a package.json?
-</section>
-<section>
-    What are dependencies?
-</section>
-<section>
-    run npm install --save [-S] something
-</section>
-<section>
-    define a script
-</section>
-<section>
-    Create a package.json file 
-npm init --yes
-Install express.js as a dev dependency
-npm install express --save-dev
-Add node_modules/ directory to .gitignore
-</section>
-
-<section>
-    Look at package.json file to find express.js and scripts
-Node_modules directory
-Dev dependencies vs prod dependencies
-Version control of npm packages
-How to require npm modules in code
-</section>
-<section>
-    Express.js
-</section>
-<section>
-    Express features
-</section>
-<section>
-    Import Express 
-npm init --yes
-Set up Express app and server
-npm install express --save-dev
-Run server it using the script provided in package.json
-Npm start
-Install nodemon to handle automatically refreshing the 
-Npm install nodemon
-</section>
-<section>
-    MVC
-</section>
-<section>
-    Routes
-</section>
-<section>
-    ACTIVITY
-    Set up a route
-</section>
-
-
-
-
-            <!-- Compatibility-->
-				<section>
-					<h2>Heads Up</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.</p>
-						
-						<p>We highly recommend using Chrome, currently, however, the latest version of Safari, mobile Safari (iPad), Firefox and IE9 will work.
-					</p>
-				</section>
-				
-				<section>
-					<h2>Works in Mobile Safari</h2>
-					<p>
-						Try it out! You can swipe through the slides and pinch your way to the overview.
-					</p>
-				</section>
-				
-				<!-- Examples of basic html based slides -->
-				<section>
-					<h2>Marvelous Unordered List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-                
                 <section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
-                    <p>P.S. This won't work when running the slides locally unless you run reveal.js runs from a local web server.</p>
+                    <h1>What does non-blocking mean?</h1>
+                    <h4>(prepare for silly exercise)</h4>
+                    <aside class="notes">
+                        Ask for two participants. Inform them that they are two web services, and they accept requests. Ask student A to say "banana" when you point to her, but sometimes waiting a couple seconds because sometimes requests take a little while. After student A has said "banana," point to student B who says "dance".
+                    </aside>
+                </section>
+                <section>
+                    <img src="img/bananadance.gif" />
+                </section>
+                <section>
+                    <h2>When to use Node</h2>
+                    <ul>
+                        <li class="fragment">Scripting on your computer</li>
+                        <li class="fragment">Setting up a web server</li>
+                        <li class="fragment">Building a cross-platform app (ex. Electron)</li>
+                        <li class="fragment">Managing dependencies (npm)</li>
+                        <li class="fragment"><strike>Take over the world</strike> Maybe?</li>
+                    </ul>
+                </section>
+                <!-- Exercise-->
+                <section>
+                  <h3>Let's Develop It!</h3>
+                  <ul>
+                    <li>If you haven't yet installed the required materials, install: git and nvm</li>
+                    <li>Install version 4.4 of Node with <code>nvm install 4</code></li>
+                    <li>Run <code>node -v</code> in your terminal and see what it says</li>
+                    <li>Node comes with npm, but make sure yours is up to date with <code>npm install npm@latest -g</code></li>
+                    <li>Run <code>npm -v</code> in your terminal and see what it says</li>
+                    <li><strong>BONUS</strong> Create a JavaScript file and run it from the command line using <code>node [YOUR_FILE].js</code></li>
+                  </ul>
+                </section>
+                <section>
+                    <h1>npm</h1>
+                </section>
+                <section>
+                    <h2>npm</h2>
+                    <ul>
+                        <li>“node package manager,” but also "the package manager for JavaScript" according to <a href="https://www.npmjs.com/">npmjs.com</a></li>
+                        <li>Module ecosystem</li>
+                        <li><a href="http://www.modulecounts.com/">Largest ecosystem of open source libraries in the world!</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>NPM modules</h2>
 
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
-				
-				<!-- Examples of code slides-->
-				<section>
-					  <h2>But wait! We teach code</h2>
-					  <p>For HTML -- Surround your code with a div class "xml", then pre, then code.</p>
-           <pre>
-            <code>
-              &lt;ul>
-                &lt;li>No order here&lt;/li>
-                &lt;li>Or here&lt;/li>
-                &lt;li>Or here&lt;/li>
-                &lt;li>Or here&lt;/li>
-              &lt;/ul&gt;
-            </code>
-          </pre>
-				</section>
-				
-				<section>
-					  <h2>But wait! We teach code</h2>
-					  <p>We can also make code editable</p>
-					  <pre>
-					    <code contenteditable>
-                &lt;ul>
-                  &lt;li>No order here&lt;/li>
-                  &lt;li>Or here&lt;/li>
-                  &lt;li>Or here&lt;/li>
-                  &lt;li>Or here&lt;/li>
-                &lt;/ul&gt;
-              </code>
+                    <h3>Some examples</h3>
+                    <ul>
+                        <li><a href="https://www.npmjs.com/package/tape">tape</a></li>
+                        <li><a href="https://www.npmjs.com/package/webpack">webpack</a></li>
+                        <li><a href="https://www.npmjs.com/package/cordova">cordova</a></li>
+                        <li><a href="https://www.npmjs.com/package/express">express</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Let's Develop It! (together)</h3>
 
-            </pre>
-				</section>
-				
-				
-				<section>
-					  <h2>But wait! We teach code</h2>
-					  <p>CSS</p>
-					  <pre>
-              <code contenteditable class ="css">
-                body{
-                  background-color: #ffffff;
-                }
-              </code>
-            </pre>
-				</section>
-				
-				<section>
-					  <h2>But wait! We teach code</h2>
-					  <p>Javascript</p>
-					  <pre>
-              <code contenteditable class ="javascript">
-                function helloWorld(){
-                  var name = 'GDI';
-                  alert("Hi, " + name)
-                }
-              </code>
-            </pre>
-				</section>
-				
-				<section>
-					  <h2>But wait! We teach code</h2>
-					  <p>PHP</p>
-					  <pre>
-              <code contenteditable class ="php">
-                function helloWorld(){
-                  $name = 'GDI';
-                  echo "Hi, " . $name;
-                }
-              </code>
-            </pre>
-				</section>
-				
-				<section>
-					  <h2>But wait! We teach code</h2>
-					  <p>Ruby</p>
-					  <pre>
-              <code contenteditable class ="ruby">
-                def hello_world
-                  @name = 'GDI'
-                  puts "Hi, #{@name}"
-                end
-              </code>
-            </pre>
-				</section>
-               
-         <section>
- 					  <h2>But wait! We teach code</h2>
- 					  <p>Python</p>
- 					  <pre>
-               <code contenteditable class ="python">
-                 def hello_world():
-                   name = "GDI"
-                   print 'Hi, ' + name
-                   return
-               </code>
-             </pre>
- 				</section>
- 				
- 				 <section>
- 					  <h2>But wait! We teach code</h2>
- 					  <p>Java</p>
- 					  <pre>
-               <code contenteditable class ="java">
-                public void helloWorld(){
-                  String name = "GDI";
-                  System.out.println("Hi," + name)
-                }
-               </code>
-             </pre>
- 				</section>
-        
+                    <ul>
+                        <li>Make a new directory and <code>cd</code> into it</li>
+                        <li>Run <code>npm init</code></li>
+                        <li>What happens with <code>npm init --yes</code>?</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>What's a package.json?</h2>
+                    <p><code>package.json</code> is a <strong>JSON</strong> file that defines information about your app, and npm knows about it</p>
+                </section>
+                <section>
+                    <h2>What's a package.json?</h2>
+                    <p>There are <a href="https://docs.npmjs.com/files/package.json">some rules</a> around names and other parts of your package.json, and npm will warn you if it doesn't like something</p>
+                </section>
+                <section>
+                    <h2>What are dependencies?</h2>
+                    <p>A dependency is something <em>your</em> application needs to run (it <em>depends</em> on it!).</p>
+                </section>
+                <section>
+                    <h2>What are dependencies?</h2>
+                    <p>You might install a dependency that relies on something else, adding it to your <code>dependency chain</code>.</p>
+                    <p>Check out the dependency chain for <a href="https://github.com/expressjs/express/blob/master/package.json">express</a>.</p>
+                </section>
+                <section>
+                    <h2>What are dependencies?</h2>
+                    <p>Some dependencies are only used in development mode (vs production), and these are known as <code>devDependencies</code> in the package.json file.</p>
+                </section>
+                <section>
+                    <h2>How do we use a module?</h2>
+                    <pre>
+                      <code contenteditable class ="javascript">
+                    var express = require('express');
+                      </code>
+                    </pre>
+                </section>
+                <section>
+                    <h3>Let's Develop It!</h3>
 
-        <!-- Elements entering one at a time-->
-        <section>
-					<section>
-						<h2>Fragmented Views</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
-							<li class="fragment"><strong>fragments</strong></li>
-						</ol>
+                    <ul>
+                        <li>Run <code>npm install --save express</code></li>
+                        <li>What happened to your package.json file?</li>
+                        <li>Create an <code>app.js</code> file and require express</li>
+                        <li><strong>BONUS</strong>: Add node_modules/ to your .gitignore file</li>
+                    </ul>
+                </section>
+                <section>
+                    <h1>Express.js</li>
+                </section>
+                <section>
+                    <h2>Express features</h2>
+                    <ul>
+                        <li>Routes</li>
+                        <li>Requests</li>
+                        <li>Views</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Simple Express Server</h2>
+                    <pre>
+                      <code contenteditable class ="javascript">
+    var express = require('express');
+    var app = express();
 
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's a few styles of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>
-							Slides can be nested inside of other slides,
-							try pressing <a href="#/14/1">down</a>.
-						</p>
-						<a href="#/14/1" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Press down or up to navigate.</p>
-						<a href="#/14/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-  						<a href="#/14" class="image">
-  							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<a href="#/14/3" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-  						<a href="#/14/1" class="image">
-  							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a href="#/14" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
+    app.get('/', function (req, res) {
+        res.send('Hello World!');
+    });
 
-        
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview. Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
+    app.listen(3000, function () {
+        console.log('Example app listening on port 3000!');
+    });
+                    </code>
+                    </pre>
+                </section>
+                <section>
+                    <h2>Run the server from npm</h2>
+                    <!-- Code Sample -->
+                </section>
+                <section>
+                    <h3>Let's Develop It!</h3>
 
-				<section>
-					<h2>rvl.io</h2>
-					<p>
-						You know, we are nerds after all and will probably get a kick out of all of this HTML. BUT, if you really don't like writing slides in HTML you can use the online editor <a href="http://www.rvl.io" target="_blank">rvl.io</a>.
-					</p>
-				</section>
+                    <ul>
+                        <li>Update <code>app.js</code> to run a simple web server</li>
+                        <li>Add a command to package.json to make it easy to run</li>
+                        <li><strong>BONUS</strong>: </li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>HTTP Server Basics: Request/Response</h2>
+                </section>
+                <section>
+                    <h2>Examples of HTTP requests:</h2>
+                    <ul>
+                        <li class="fragment">GET</li>
+                        <li class="fragment">PUT</li>
+                        <li class="fragment">POST</li>
+                        <li class="fragment">DELETE</li>
+                        <li class="fragment"><a href="https://www.w3.org/Protocols/rfc2616/rfc2616.txt">Behold the holy RFC for more about the HTTP protocol</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>And responses?</h2>
 
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=cube#/transitions">Cube</a> -
-						<a href="?transition=page#/transitions">Page</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a> -
-						<a href="?transition=linear#/transitions">Linear</a> -
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?#/transitions">Default</a>
-					</p>
-				</section>
+                    <p>They're what you get back from a request 😎</p>
+                </section>
+                <section>
+                    <h2>Routes</h2>
+                    <p>"Routes" define how a server should respond to a certain request at a certain end point or path.</p>
+                    <pre>
+                        <code contenteditable class ="javascript">
+    app.get('/', function (req, res) {
+        res.send('Hello World!');
+    });
+                        </code>
+                    </pre>
+                </section>
+                <section>
+                    <h2>Templates</h2>
+                    <p>How you pass data through to your view</p>
+                </section>
+                <section>
+                    <h2>Templates</h2>
+                    <!-- TODO: Code snippet -->
+                </section>
+                <section>
+                    <h3>Let's Develop It!</h3>
 
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						Reveal.js comes with a few themes built in: <br>
-            <a href="?theme=gdicool#/themes">GDI Cool</a> -
-            <a href="?theme=gdilight#/themes">GDI Light</a> -
-            <a href="?theme=gdisunny#/themes">GDI Sunny</a> -
-            <a href="?theme=gdidefault#/themes">Default</a>
-					</p>
-					<p>
-						<small>
-							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
-						</small>
-					</p>
-				</section>
-
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						The nice thing about standards is that there are so many to choose from</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.
-					</blockquote>
-				</section>
-
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/1">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen
-						during a presentation.
-					</p>
-				</section>
+                    <ul>
+                        <li>Create a new route in your <code>app.js</code> file.</li>
+                        <li>Associate it with a new template</li>
+                        <li><strong>BONUS</strong>: Make your template update based on the request
+                        <li><strong>BONUS</strong>: Add static assets to your app (research!) and add CSS to your page</li>
+                    </ul>
+                </section>
+<!-- 
+                TODO:
+                - Add static assets
+                - Create a node module (module.exports)
+                - What we've learned section -->
 
 				<section>
 					<h1>THE END</h1>
-					<h3>BY Girl Develop It</h3>
-					<h4>Special thanks to: Hakim El Hattab / hakim.se</h4>
+					<h3>Don't forget to take the end-of-class survey!</h3>
 				</section>
 
 			</div>
