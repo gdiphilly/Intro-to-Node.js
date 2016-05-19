@@ -218,18 +218,25 @@
     var app = express();
 
     app.get('/', function (req, res) {
-        res.send('Hello World!');
+        res.send('Welcome to the GDI Node Workshop!');
     });
 
     app.listen(3000, function () {
-        console.log('Example app listening on port 3000!');
+        console.log('Your app is listening on port 3000!');
     });
-                    </code>
+                        </code>
                     </pre>
                 </section>
                 <section>
                     <h2>Run the server from npm</h2>
-                    <!-- Code Sample -->
+                    <pre>
+                      <code contenteditable class ="javascript">
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+                        </code>
+                    </pre>
                 </section>
                 <section>
                     <h3>Let's Develop It!</h3>
@@ -263,6 +270,7 @@
                     <p>"Routes" define how a server should respond to a certain request at a certain end point or path.</p>
                     <pre>
                         <code contenteditable class ="javascript">
+    // app.&lt;HTTP action>
     app.get('/', function (req, res) {
         res.send('Hello World!');
     });
@@ -270,29 +278,140 @@
                     </pre>
                 </section>
                 <section>
-                    <h2>Templates</h2>
-                    <p>How you pass data through to your view</p>
+                    <h2>MVC</h2>
+                    <ul>
+                        <li>Model: Data</li>
+                        <li>View: UI</li>
+                        <li>Controller: Switchboard</li>
+                    </ul>
+                </section>
+                <section>
+                    <img src="img/MVC.png" />
+                </section>
+                <section>
+                    <h2>Controllers</h2>
+                    <p>Our controllers <em>mediate</em> communication between our models and views</p>
+                </section>
+                <section>
+                    <h2>Our Home Controller</h2>
+                    <pre>
+                        <code contenteditable class ="javascript">
+    exports.index = function (req, res) {
+        res.send('Welcome to the GDI Node Workshop!');
+    }
+                        </code>
+                    </pre>
+                </section>
+                <section>
+                    <h2>Our controller is a <em>Node module!</em></h2>
+                </section>
+                <section>
+                    <img src="img/bananadance.gif" />
+                </section>
+                <section>
+                    <h2>Node Modules</h2>
+                    <p>Node modules <em>do something</em> and expose things to the outside world with <code>exports</code>
+                </section>
+                <section>
+                    <h2>Our Home Controller</h2>
+                    <pre>
+                        <code contenteditable class ="javascript">
+    exports.index = function (req, res) {
+        res.send('Welcome to the GDI Node Workshop!');
+    }
+                        </code>
+                    </pre>
+                </section>
+                <section>
+                    <h2>How do we use a module?</h2>
+                    <pre>
+                      <code contenteditable class ="javascript">
+    var express = require('express');
+    // var nameWeUseInOurApp = require('someModule');
+                      </code>
+                    </pre>
+                </section>
+                <section>
+                    <h2>How our app integrates with our controller</h2>
+                    <pre>
+                        <code contenteditable class ="javascript">
+    // Tell app.js about the home controller using require
+    var homeController = require('./controllers/home');
+
+    // Routes
+    app.get('/', homeController.index);
+                        </code>
+                    </pre>
+                </section>
+                <section>
+                    <h3>Let's Develop It!</h3>
+                    <ul>
+                        <li>Create a new <code>home.js</code> file in a <code>controllers</code> folder.</li>
+                        <li>Move your root route to <code>home.js</code></li>
+                        <li>Update <code>app.js</code> to use your controller.</li>
+                        <li><strong>BONUS</strong>: Add static assets to your app (research!) and add CSS to your page</li>
+                    </ul>
                 </section>
                 <section>
                     <h2>Templates</h2>
-                    <!-- TODO: Code snippet -->
+                    <p>Pass data through to your view</p>
+                </section>
+                <section>
+                    <h2>Tell our controller about templates</h2>
+                    <pre>
+                        <code contenteditable class ="javascript">
+    var path = require('path');
+
+    exports.index = function (req, res) {
+        res.sendFile(path.join(__dirname, '../public', 'templates', 'index.html'));
+    }
+                        </code>
+                    </pre>
+                </section>
+                <section>
+                    <h2>What about CSS? And images?</h2>
+                    <p>We need to tell Express which files we allow the user to access</p>
+                </section>
+                <section>
+                    <h2>Add static files to our app</h2>
+                    <pre>
+                        <code contenteditable class ="javascript">
+    // Serve static files (i.e. images, scripts, styles, templates) from public/ directory
+    app.use(express.static('public'));
+                        </code>
+                    </pre>
+
                 </section>
                 <section>
                     <h3>Let's Develop It!</h3>
 
                     <ul>
-                        <li>Create a new route in your <code>app.js</code> file.</li>
-                        <li>Associate it with a new template</li>
-                        <li><strong>BONUS</strong>: Make your template update based on the request
-                        <li><strong>BONUS</strong>: Add static assets to your app (research!) and add CSS to your page</li>
+                        <li>Update your home controller to load a template, <code>index.html</code></li>
+                        <li>Create a new route in your home controller for <code>/about</code></li>
+                        <li>Associate <code>/about</code> with a new template</li>
+                        <li>Add static assets capability to your app</li>
+                        <li><strong>BONUS</strong>: Add a CSS file and style your page!</li>
+                        <li><strong>BONUS</strong>: Add a <code>/*</code> route as a catch-all that goes to a 404 page.</li>
                     </ul>
                 </section>
-<!-- 
-                TODO:
-                - Add static assets
-                - Create a node module (module.exports)
-                - What we've learned section -->
-
+                <section>
+                    <h2>What we've learned</h2>
+                    <ul>
+                        <li>What is Node</li>
+                        <li>What is npm</li>
+                        <li>Used an npm module</li>
+                        <li>Built a web server</li>
+                        <li>Wrote a Node module</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Where do we go from here?</h2>
+                    <ul>
+                        <li>Add Jade templating to your app and use <code>res.render</code></li>
+                        <li>Import Node modules (ex. ) and do some things!</li>
+                        <li>Deploy your app to Heroku!</li>
+                    </ul>
+                </section>
 				<section>
 					<h1>THE END</h1>
 					<h3>Don't forget to take the end-of-class survey!</h3>
