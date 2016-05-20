@@ -36,7 +36,11 @@
 		<!-- If use the PDF print sheet so students can print slides-->
 		
 		<link rel="stylesheet" href="css/print/pdf.css" type="text/css" media="print">
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+        <style>
+            .reveal section img { box-shadow: none; }
+        </style>
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -190,7 +194,7 @@
                     </pre>
                 </section>
                 <section>
-                    <h3>Let's Develop It!</h3>
+                    <h3>Let's Develop It!<sup>1</sup></h3>
 
                     <ul>
                         <li>Run <code>npm install --save express</code></li>
@@ -239,11 +243,33 @@
                     </pre>
                 </section>
                 <section>
-                    <h3>Let's Develop It!</h3>
+                    <h2>npm scripts</h2>
+                    <p><a href="https://docs.npmjs.com/misc/scripts">npm scripts</a> allow you to use npm to manage a lot of your app using easy commands like <code>npm start</code>, <code>npm test</code> and more.</p>
+                </section>
+                <section>
+                    <h2>npm scripts</h2>
+                    <p>People use "scripts" in package.json to: compile or preprocess code, run tests, build for a deployment or environment, or really anything!</p>
+                </section>
+                <section>
+                    <h2>npm scripts</h2>
+                    <p>If you define an arbitrary key (not in npm docs), you can run it using <code>npm run KEY</code></p>
+                    <pre>
+                      <code contenteditable class ="javascript">
+    "scripts": {
+        ...
+        "stuff": "echo \"LET'S DO STUFF\""
+    }
+    ...
+    $ npm run stuff
+                        </code>
+                    </pre>
+                </section>
+                <section>
+                    <h3>Let's Develop It!<sup>2</sup></h3>
 
                     <ul>
-                        <li>Update <code>app.js</code> to run a simple web server</li>
-                        <li>Add a command to package.json to make it easy to run</li>
+                        <li>Update <code>app.js</code> to run a simple web server using Express</li>
+                        <li>Add a command to package.json to make it easy to run, probably under "start"</li>
                     </ul>
                 </section>
                 <section>
@@ -343,12 +369,13 @@
                     </pre>
                 </section>
                 <section>
-                    <h3>Let's Develop It!</h3>
+                    <h3>Let's Develop It!<sup>3</sup></h3>
                     <ul>
                         <li>Create a new <code>home.js</code> file in a <code>controllers</code> folder.</li>
                         <li>Move your root route to <code>home.js</code></li>
                         <li>Update <code>app.js</code> to use your controller.</li>
-                        <li><strong>BONUS</strong>: Add static assets to your app (research!) and add CSS to your page</li>
+                        <li><strong>BONUS</strong>: Add a <code>/*</code> route as a catch-all displays a 404 message.</li>
+                        <li><strong>BONUS</strong>: Create a new route in your home controller for <code>/about</code></li>
                     </ul>
                 </section>
                 <section>
@@ -382,15 +409,14 @@
 
                 </section>
                 <section>
-                    <h3>Let's Develop It!</h3>
+                    <h3>Let's Develop It!<sup>4</sup></h3>
 
                     <ul>
                         <li>Update your home controller to load a template, <code>index.html</code></li>
-                        <li>Create a new route in your home controller for <code>/about</code></li>
+                        <li>Create a new route in your home controller for <code>/about</code> if you haven't yet</li>
                         <li>Associate <code>/about</code> with a new template</li>
                         <li>Add static assets capability to your app</li>
                         <li><strong>BONUS</strong>: Add a CSS file and style your page!</li>
-                        <li><strong>BONUS</strong>: Add a <code>/*</code> route as a catch-all that goes to a 404 page.</li>
                     </ul>
                 </section>
                 <section>
@@ -414,12 +440,14 @@
 				<section>
 					<h1>THE END</h1>
 					<h3>Don't forget to take the end-of-class survey!</h3>
+                    <p><a href="https://tinyurl.com/gdinode">https://tinyurl.com/gdinode</a></p>
+                    <p>Exercise solutions at <a href="https://github.com/pselle/Intro-to-Node.js-Exercises" alt="Exercises on GitHub">https://github.com/pselle/Intro-to-Node.js-Exercises</a></p>
 				</section>
 
 			</div>
   		<footer>
         <div class="copyright">
-          Intro to Node.js -- Chapter name here (if content modified from original) --
+          Intro to Node.js -- GDI Philly 🔔 --
           <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
         </div>
       </footer>
