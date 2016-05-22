@@ -429,25 +429,30 @@
                     </ul>
                 </section>
                 <section>
-                    <h2>Jade</h2>
+                    <h2>Jade/Pug View Engine</h2>
                     <p>Because writing HTML can be a lot! And view engines are great!</p>
+                    <p><a href="http://jade-lang.com/">Check out Pug (formerly known as Jade)'s site for dogs and an interactive playground</a></p>
                     <pre>
                         <code contenteditable class ="javascript">
+    // template.pug
+    h1 Welcome
     a(href="somewhere.com") Some cool link!
                         </code>
                     </pre>
                 </section>
                 <section>
-                    <h2>Jade</h2>
-                    <p>Use Jade</p>
+                    <h2>Pug</h2>
+                    <p>Install &amp; Use Pug</p>
                     <pre>
                         <code contenteditable class ="javascript">
-    app.set('view engine', 'jade');
+    npm install --save pug
+    // in app.js
+    app.set('view engine', 'pug');
                         </code>
                     </pre>
                 </section>
                 <section>
-                    <h2>Jade</h2>
+                    <h2>Pug</h2>
                     <p>Use <code>res.render</code> to use your view engine</p>
                     <pre>
                         <code contenteditable class ="javascript">
@@ -458,38 +463,49 @@
                     </pre>
                 </section>
                 <section>
+                    <h2>How'd it get the file?</h2>
+                    <p>Since we put our <code>about.pug</code> file in <code>views/</code> Express knows where that is and assumes that's what we mean when we say <code>render</code></p>
+                </section>
+                <section>
+                    <h2>One more thing! Develop faster!</h2>
+                    <p><code>npm install nodemon</code> and update your <code>package.json</code> to use nodemon to run <code>app.js</code>. It will live reload so you don't have to start/stop your server!</p>
+                </section>
+                <section>
                     <h3>Let's Develop It!<sup>5</sup></h3>
 
                     <ul>
-                        <li>Install Jade</li>
-                        <li>Add some jade views to a <code>views</code> folder</li>
+                        <li>Install Pug</li>
+                        <li>Add some <code>.pug</code> views to a <code>views</code> folder</li>
                         <li>Update your routes to use res.render</li>
                     </ul>
                 </section>
                 <section>
-                    <h2>APIs!!</h2>
+                    <h2>APIs!</h2>
                     <p>Application Programming Interface</p>
+                    <p class="fragment">AKA computers talk to each other</p>
                 </section>
                 <section>
                     <h2>APIs</h2>
                     <p>APIs allow us to request data from a service</p>
                     <p>Some APIs you might want to use</p>
                     <ul>
-                        <li>Meetup</li>
+                        <li>Meetup <a href="https://secure.meetup.com/meetup_api/console/">(api console)</a></li>
                         <li>Twitter</li>
                         <li>Facebook</li>
                     </ul>
                 </section>
                 <section>
-                    <h2>APIs</h2>
                     <h2>We can also build our own!!</h2>
                 </section>
                 <section>
-                    <h3>Let's Develop It!<sup>5</sup></h3>
+                    <h3>Let's Develop It!<sup>6</sup></h3>
 
                     <ul>
-                        <li>Download our <a href="https://github.com/dariusk/corpora/blob/master/data/animals/dinosaurs.json">database" of dinosaurs</a></li>
+                        <li>Download our <a href="https://github.com/dariusk/corpora/blob/master/data/animals/dinosaurs.json">"database" of dinosaurs</a></li>
                         <li>Create an api controller</li>
+                        <li>Present all the dinosaurs at <code>/api/all</code></li>
+                        <li>Show a dinosaur based on its index in the dinosaurs array at <code>/api/get/:id</code> where id is the index of the dinosaur</li>
+                        <li>Consume your API to create a RDaaS (Random Dinosaur as a Service) page!</li>
                     </ul>
                 </section>
                 <section>
@@ -500,12 +516,14 @@
                         <li>Used an npm module</li>
                         <li>Built a web server</li>
                         <li>Wrote a Node module</li>
+                        <li>Wrote an API endpoint</li>
                     </ul>
                 </section>
                 <section>
                     <h2>Where do we go from here?</h2>
                     <ul>
                         <li>Import Node modules (browse npm for some ideas) and do some things!</li>
+                        <li>Use a database like <a href="https://www.mongodb.com/">MongoDB</a> or a service like <a href="https://firebase.google.com/">Firebase</a></li>
                         <li>Deploy your app to Heroku!</li>
                     </ul>
                 </section>
