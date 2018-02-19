@@ -90,8 +90,21 @@
         <ul>
           <li>What is Node</li>
           <li>What is npm</li>
-          <li>Use and write an npm module</li>
-          <li>Build a web server</li>
+          <li>Using node packages</li>
+          <li>Overview of server response cycle</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Quick CLI review!</h1>
+      </section>
+      <section>
+        <h2>Commands used often:</h2>
+        <ul>
+          <li>mkdir</li>
+          <li>cd</li>
+          <li>ls [-la]</li>
+          <li>cat</li>
+          <li>rm [-rf]</li>
         </ul>
       </section>
       <section>
@@ -139,10 +152,11 @@
         <h3>Let's Develop It!</h3>
         <ul>
           <li>If you haven't yet installed the required materials, install: git and nvm</li>
-          <li>Install version 4.4 of Node with <code>nvm install 4</code></li>
+          <li>Install version 8.9.4 of Node (LTS) with <code>nvm install 8.9.4</code></li>
           <li>Run <code>node -v</code> in your terminal and see what it says</li>
           <li>Node comes with npm, but make sure yours is up to date with <code>npm install npm@latest -g</code></li>
           <li>Run <code>npm -v</code> in your terminal and see what it says</li>
+          <li>Run <code>node</code> to access the REPL, try out some JS! Use <code>.exit</code> to exit</li>
           <li><strong>BONUS</strong> Create a JavaScript file and run it from the command line using <code>node [YOUR_FILE].js</code></li>
         </ul>
       </section>
@@ -153,24 +167,23 @@
         <h2>npm</h2>
         <ul>
           <li>“node package manager,” but also "the package manager for JavaScript" according to <a href="https://www.npmjs.com/">npmjs.com</a></li>
-          <li>Module ecosystem</li>
+          <li>Package ecosystem</li>
           <li><a href="http://www.modulecounts.com/">Largest ecosystem of open source libraries in the world!</a></li>
         </ul>
       </section>
       <section>
-        <h2>NPM modules</h2>
+        <h2>NPM packages</h2>
 
         <h3>Some examples</h3>
         <ul>
-          <li><a href="https://www.npmjs.com/package/tape">tape</a></li>
+          <li><a href="https://www.npmjs.com/package/lodash">lodash</a></li>
           <li><a href="https://www.npmjs.com/package/webpack">webpack</a></li>
-          <li><a href="https://www.npmjs.com/package/cordova">cordova</a></li>
+          <li><a href="https://www.npmjs.com/package/react">react</a></li>
           <li><a href="https://www.npmjs.com/package/express">express</a></li>
         </ul>
       </section>
       <section>
         <h3>Let's Develop It! (together)</h3>
-
         <ul>
           <li>Make a new directory and <code>cd</code> into it</li>
           <li>Run <code>npm init</code></li>
@@ -186,6 +199,40 @@
         <p>There are <a href="https://docs.npmjs.com/files/package.json">some rules</a> around names and other parts of your package.json, and npm will warn you if it doesn't like something</p>
       </section>
       <section>
+        <h2>npm install</h2>
+        <ul>
+          <li>Different behavior depending on arguments</li>
+          <li>With arg: Installs a package and its dependencies to your <code>node_modules</code> folder</li>
+          <li>Without arg: In node project folder, will install the dependencies in the <code>package.json</code></li>
+        </ul>
+        <aside class="notes">
+          One of the most common things you will do with npm is install. This installs dependencies to your node_modules folder.
+        </aside>
+      </section>
+      <section>
+        <h2>Example</h2>
+        <code>npm install express</code>
+        <aside class="notes">After running this, we can see in our node_modules folder there's a lot of stuff that wasn't there before</aside>
+      </section>
+      <section>
+        <h2>Example</h2>
+        <p><code>npm install express --save</code></p>
+        <p><code>npm install express -S</code></p>
+        <p><code>npm install express lodash ...</code></p>
+        <p>Tell npm to save a package to your package.json, or install multiple packages at once!</p>
+      </section>
+      <section>
+        <h2>More install!</h2>
+        <p><code>npm install</code> is smart!</p>
+        <ul>
+          <li>Github remotes <code>npm install foo/foo</code></li>
+          <li>Folders <code>npm install ../foo</code></li>
+          <li>Package at version <code>npm install foo@1.0</code></li>
+          <li>Install a package globally <code>npm install -g foo</code></li>
+        </ul>
+        <p><a href="https://docs.npmjs.com/cli/install">More details in the CLI docs</a></p>
+      </section>
+      <section>
         <h2>What are dependencies?</h2>
         <p>A dependency is something <em>your</em> application needs to run (it <em>depends</em> on it!).</p>
       </section>
@@ -197,6 +244,18 @@
       <section>
         <h2>What are dependencies?</h2>
         <p>Some dependencies are only used in development mode (vs production), and these are known as <code>devDependencies</code> in the package.json file.</p>
+      </section>
+      <section>
+        <h2>Example</h2>
+        <p><code>npm install jest --save-dev</code></p>
+        <p><code>npm install jest -D</code></p>
+        <p>You can install packages as dev dependencies, meaning people who run the built package don't require these modules.</p>
+      </section>
+      <section>
+        <h2>Packages vs. Modules</h2>
+        <blockquote>In the Node.js module system, each file is treated as a separate module. </blockquote>
+        <p><a href="https://nodejs.org/api/modules.html">(source)</a></p>
+        <p>A package describes a group of 1+ modules</p>
       </section>
       <section>
         <h2>How do we use a module?</h2>
@@ -212,6 +271,9 @@
         <ul>
           <li>Run <code>npm install --save express</code></li>
           <li>What happened to your package.json file?</li>
+          <li>Remove the <code>node_modules</code> folder, and run <code>npm install</code>.
+            npm installs your defined dependency!
+          </li>
           <li>Create an <code>app.js</code> file and require express</li>
           <li><strong>BONUS</strong>: Add node_modules/ to your .gitignore file</li>
         </ul>
@@ -341,14 +403,14 @@
                     </pre>
                 </section>
                 <section>
-                    <h2>Our controller is a <em>Node module!</em></h2>
+                    <h2>Did you realize, our controller is a <em>Node module</em>?</h2>
                 </section>
                 <section>
                     <img src="img/bananadance.gif" />
                 </section>
                 <section>
                     <h2>Node Modules</h2>
-                    <p>Node modules <em>do something</em> and expose things to the outside world with <code>exports</code>
+                    <p>A node module is a file, and it exposes things to the outside world with <code>exports</code>
                 </section>
                 <section>
                     <h2>Our Home Controller</h2>
