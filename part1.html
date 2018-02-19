@@ -26,11 +26,11 @@
   <!-- If the query includes 'print-pdf', include the PDF print sheet -->
   <script>
     if (window.location.search.match(/print-pdf/gi)) {
-      var link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = 'css/print/pdf.css';
-      document.getElementsByTagName('head')[0].appendChild(link);
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = "css/print/pdf.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
     }
   </script>
 
@@ -271,8 +271,7 @@
         <ul>
           <li>Run <code>npm install --save express</code></li>
           <li>What happened to your package.json file?</li>
-          <li>Remove the <code>node_modules</code> folder, and run <code>npm install</code>.
-            npm installs your defined dependency!
+          <li>Remove the <code>node_modules</code> folder, and run <code>npm install</code>. npm installs your defined dependency!
           </li>
           <li>Create an <code>app.js</code> file and require express</li>
           <li><strong>BONUS</strong>: Add node_modules/ to your .gitignore file</li>
@@ -280,326 +279,119 @@
       </section>
       <section>
         <h1>Express.js</li>
-                </section>
-                <section>
-                    <h2>Express features</h2>
-                    <ul>
-                        <li>Routes</li>
-                        <li>Requests</li>
-                        <li>Views</li>
-                    </ul>
-                </section>
-                <section>
-                    <h2>Simple Express Server</h2>
-                    <pre>
-                      <code contenteditable class ="javascript">
-    var express = require('express');
-    var app = express();
-
-    app.get('/', function (req, res) {
-        res.send('Welcome to the GDI Node Workshop!');
-    });
-
-    app.listen(3000, function () {
-        console.log('Your app is listening on port 3000!');
-    });
-                        </code>
-                    </pre>
-                </section>
-                <section>
-                    <h2>Run the server from npm</h2>
-                    <pre>
-                      <code contenteditable class ="javascript">
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js"
-    },
-                        </code>
-                    </pre>
-                </section>
-                <section>
-                    <h2>npm scripts</h2>
-                    <p><a href="https://docs.npmjs.com/misc/scripts">npm scripts</a> allow you to use npm to manage a lot of your app using easy commands like <code>npm start</code>, <code>npm test</code> and more.</p>
-                </section>
-                <section>
-                    <h2>npm scripts</h2>
-                    <p>People use "scripts" in package.json to: compile or preprocess code, run tests, build for a deployment or environment, or really anything!</p>
-                </section>
-                <section>
-                    <h2>npm scripts</h2>
-                    <p>If you define an arbitrary key (not in npm docs), you can run it using <code>npm run KEY</code></p>
-                    <pre>
-                      <code contenteditable class ="javascript">
-    "scripts": {
-        ...
-        "stuff": "echo \"LET'S DO STUFF\""
-    }
-    ...
-    $ npm run stuff
-                        </code>
-                    </pre>
-                </section>
-                <section>
-                    <h3>Let's Develop It!<sup>2</sup></h3>
-
-                    <ul>
-                        <li>Update <code>app.js</code> to run a simple web server using Express</li>
-                        <li>Add a command to package.json to make it easy to run, probably under "start"</li>
-                    </ul>
-                </section>
-                <section>
-                    <h2>HTTP Server Basics: Request/Response</h2>
-                </section>
-                <section>
-                    <h2>Examples of HTTP requests:</h2>
-                    <ul>
-                        <li class="fragment">GET</li>
-                        <li class="fragment">PUT</li>
-                        <li class="fragment">POST</li>
-                        <li class="fragment">DELETE</li>
-                        <li class="fragment"><a href="https://www.w3.org/Protocols/rfc2616/rfc2616.txt">Behold the holy RFC for more about the HTTP protocol</a></li>
-                    </ul>
-                </section>
-                <section>
-                    <h2>And responses?</h2>
-
-                    <p>They're what you get back from a request 😎</p>
-                </section>
-                <section>
-                    <h2>Routes</h2>
-                    <p>"Routes" define how a server should respond to a certain request at a certain end point or path.</p>
-                    <pre>
-                        <code contenteditable class ="javascript">
-    // app.&lt;HTTP action>
-    app.get('/', function (req, res) {
-        res.send('Hello World!');
-    });
-                        </code>
-                    </pre>
-                </section>
-                <section>
-                    <h2>MVC</h2>
-                    <ul>
-                        <li>Model: Data</li>
-                        <li>View: UI</li>
-                        <li>Controller: Switchboard</li>
-                    </ul>
-                </section>
-                <section>
-                    <img src="img/MVC.png" />
-                </section>
-                <section>
-                    <h2>Controllers</h2>
-                    <p>Our controllers <em>mediate</em> communication between our models and views</p>
-                </section>
-                <section>
-                    <h2>Our Home Controller</h2>
-                    <pre>
-                        <code contenteditable class ="javascript">
-    exports.index = function (req, res) {
-        res.send('Welcome to the GDI Node Workshop!');
-    }
-                        </code>
-                    </pre>
-                </section>
-                <section>
-                    <h2>Did you realize, our controller is a <em>Node module</em>?</h2>
-                </section>
-                <section>
-                    <img src="img/bananadance.gif" />
-                </section>
-                <section>
-                    <h2>Node Modules</h2>
-                    <p>A node module is a file, and it exposes things to the outside world with <code>exports</code>
-                </section>
-                <section>
-                    <h2>Our Home Controller</h2>
-                    <pre>
-                        <code contenteditable class ="javascript">
-    exports.index = function (req, res) {
-        res.send('Welcome to the GDI Node Workshop!');
-    }
-                        </code>
-                    </pre>
-                </section>
-                <section>
-                    <h2>How do we use a module?</h2>
-                    <pre>
-                      <code contenteditable class ="javascript">
-    var express = require('express');
-    // var nameWeUseInOurApp = require('someModule');
-                      </code>
-                    </pre>
-                </section>
-                <section>
-                    <h2>How our app integrates with our controller</h2>
-                    <pre>
-                        <code contenteditable class ="javascript">
-    // Tell app.js about the home controller using require
-    var homeController = require('./controllers/home');
-
-    // Routes
-    app.get('/', homeController.index);
-                        </code>
-                    </pre>
-                </section>
-                <section>
-                    <h3>Let's Develop It!<sup>3</sup></h3>
-                    <ul>
-                        <li>Create a new <code>home.js</code> file in a <code>controllers</code> folder.</li>
-                        <li>Move your root route to <code>home.js</code></li>
-                        <li>Update <code>app.js</code> to use your controller.</li>
-                        <li><strong>BONUS</strong>: Add a <code>/*</code> route as a catch-all displays a 404 message.</li>
-                        <li><strong>BONUS</strong>: Create a new route in your home controller for <code>/about</code></li>
-                    </ul>
-                </section>
-                <section>
-                    <h2>Templates</h2>
-                    <p>Pass data through to your view</p>
-                </section>
-                <section>
-                    <h2>Tell our controller about templates</h2>
-                    <pre>
-                        <code contenteditable class ="javascript">
-    var path = require('path');
-
-    exports.index = function (req, res) {
-        res.sendFile(path.join(__dirname, '../public', 'templates', 'index.html'));
-    }
-                        </code>
-                    </pre>
-                </section>
-                <section>
-                    <h2>What about CSS? And images?</h2>
-                    <p>We need to tell Express which files we allow the user to access</p>
-                </section>
-                <section>
-                    <h2>Add static files to our app</h2>
-                    <pre>
-                        <code contenteditable class ="javascript">
-    // Serve static files (i.e. images, scripts, styles, templates) from public/ directory
-    app.use(express.static('public'));
-                        </code>
-                    </pre>
-
-                </section>
-                <section>
-                    <h3>Let's Develop It!<sup>4</sup></h3>
-
-                    <ul>
-                        <li>Update your home controller to load a template, <code>index.html</code></li>
-                        <li>Create a new route in your home controller for <code>/about</code> if you haven't yet</li>
-                        <li>Associate <code>/about</code> with a new template</li>
-                        <li>Add static assets capability to your app</li>
-                        <li><strong>BONUS</strong>: Add a CSS file and style your page!</li>
-                    </ul>
-                </section>
-                <section>
-                    <h2>Jade/Pug View Engine</h2>
-                    <p>Because writing HTML can be a lot! And view engines are great!</p>
-                    <p><a href="http://jade-lang.com/">Check out Pug (formerly known as Jade)'s site for examples and an interactive playground</a></p>
-                    <pre>
-                        <code contenteditable class ="javascript">
-    // template.pug
-    h1 Welcome
-    a(href="somewhere.com") Some cool link!
-                        </code>
-                    </pre>
-                </section>
-                <section>
-                    <h2>Pug</h2>
-                    <p>Install &amp; Use Pug</p>
-                    <pre>
-                        <code contenteditable class ="javascript">
-    npm install --save pug
-    // in app.js
-    app.set('view engine', 'pug');
-                        </code>
-                    </pre>
-                </section>
-                <section>
-                    <h2>Pug</h2>
-                    <p>Use <code>res.render</code> to use your view engine</p>
-                    <pre>
-                        <code contenteditable class ="javascript">
-    exports.about = function (req, res) {
-      res.render('about');
-    }
-                       </code>
-                    </pre>
-                </section>
-                <section>
-                    <h2>How'd it get the file?</h2>
-                    <p>Since we put our <code>about.pug</code> file in <code>views/</code> Express knows where that is and assumes that's what we mean when we say <code>render</code></p>
-                </section>
-                <section>
-                    <h2>One more thing! Develop faster!</h2>
-                    <p><code>npm install --save-dev nodemon</code> and update your <code>package.json</code> to use nodemon to run <code>app.js</code>. It will live reload so you don't have to start/stop your server!</p>
-                </section>
-                <section>
-                    <h3>Let's Develop It!<sup>5</sup></h3>
-
-                    <ul>
-                        <li>Install Pug</li>
-                        <li>Add some <code>.pug</code> views to a <code>views</code> folder</li>
-                        <li>Update your routes to use res.render</li>
-                    </ul>
-                </section>
-                <section>
-                    <h2>APIs!</h2>
-                    <p>Application Programming Interface</p>
-                    <p class="fragment">AKA computers talk to each other</p>
-                </section>
-                <section>
-                    <h2>APIs</h2>
-                    <p>APIs allow us to request data from a service</p>
-                    <p>Some APIs you might want to use</p>
-                    <ul>
-                        <li>Meetup <a href="https://secure.meetup.com/meetup_api/console/">(api console)</a></li>
-                        <li>Twitter</li>
-                        <li>Facebook</li>
-                    </ul>
-                </section>
-                <section>
-                    <h2>We can also build our own!!</h2>
-                </section>
-                <section>
-                    <h3>Let's Develop It!<sup>6</sup></h3>
-
-                    <ul>
-                        <li>Download our <a href="https://github.com/dariusk/corpora/blob/master/data/animals/dinosaurs.json">"database" of dinosaurs</a></li>
-                        <li>Create an api controller</li>
-                        <li>Present all the dinosaurs at <code>/api/all</code></li>
-                        <li>Show a dinosaur based on its index in the dinosaurs array at <code>/api/get/:id</code> where id is the index of the dinosaur</li>
-                        <li>Consume your API to create a RDaaS (Random Dinosaur as a Service) page!</li>
-                    </ul>
-                </section>
-                <section>
-                    <h2>What we've learned</h2>
-                    <ul>
-                        <li>What is Node</li>
-                        <li>What is npm</li>
-                        <li>Used an npm module</li>
-                        <li>Built a web server</li>
-                        <li>Wrote a Node module</li>
-                        <li>Wrote an API endpoint</li>
-                    </ul>
-                </section>
-                <section>
-                    <h2>Where do we go from here?</h2>
-                    <ul>
-                        <li>Import Node modules (browse npm for some ideas) and do some things!</li>
-                        <li>Use a database like <a href="https://www.mongodb.com/">MongoDB</a> or a service like <a href="https://firebase.google.com/">Firebase</a></li>
-                        <li>Deploy your app to Heroku!</li>
-                    </ul>
-                </section>
-				<section>
-					<h1>THE END</h1>
-        <h3>Don't forget to take the end-of-class survey!</h3>
-        <p><a href="https://tinyurl.com/gdinode">https://tinyurl.com/gdinode</a></p>
-        <p>Exercise solutions at <a href="https://github.com/pselle/Intro-to-Node.js-Exercises" alt="Exercises on GitHub">https://github.com/pselle/Intro-to-Node.js-Exercises</a></p>
       </section>
+      <section>
+          <h2>Express features</h2>
+          <ul>
+              <li>Routes</li>
+              <li>Requests</li>
+              <li>Views</li>
+          </ul>
+      </section>
+      <section>
+          <h2>Simple Express Server</h2>
+          <pre>
+            <code contenteditable class ="javascript">
+var express = require('express');
+var app = express();
 
+app.get('/', function (req, res) {
+res.send('Welcome to the GDI Node Workshop!');
+});
+
+app.listen(3000, function () {
+console.log('Your app is listening on port 3000!');
+});
+              </code>
+          </pre>
+      </section>
+      <section>
+          <h2>Run the server from npm</h2>
+          <pre>
+            <code contenteditable class ="javascript">
+"scripts": {
+"test": "echo \"Error: no test specified\" && exit 1",
+"start": "node server.js"
+},
+              </code>
+          </pre>
+      </section>
+      <section>
+          <h2>npm scripts</h2>
+          <p><a href="https://docs.npmjs.com/misc/scripts">npm scripts</a> allow you to use npm to manage a lot of your app using easy commands like <code>npm start</code>, <code>npm test</code> and more.</p>
+      </section>
+      <section>
+          <h2>npm scripts</h2>
+          <p>People use "scripts" in package.json to: compile or preprocess code, run tests, build for a deployment or environment, or really anything!</p>
+      </section>
+      <section>
+          <h2>npm scripts</h2>
+          <p>If you define an arbitrary key (not in npm docs), you can run it using <code>npm run KEY</code></p>
+          <pre>
+            <code contenteditable class ="javascript">
+"scripts": {
+...
+"stuff": "echo \"LET'S DO STUFF\""
+}
+...
+$ npm run stuff
+              </code>
+          </pre>
+      </section>
+      <section>
+          <h3>Let's Develop It!<sup>2</sup></h3>
+
+          <ul>
+              <li>Update <code>app.js</code> to run a simple web server using Express</li>
+              <li>Add a command to package.json to make it easy to run, probably under "start"</li>
+          </ul>
+      </section>
+      <section>
+          <h2>HTTP Server Basics: Request/Response</h2>
+      </section>
+      <section>
+          <h2>Examples of HTTP requests:</h2>
+          <ul>
+              <li class="fragment">GET</li>
+              <li class="fragment">PUT</li>
+              <li class="fragment">POST</li>
+              <li class="fragment">DELETE</li>
+              <li class="fragment"><a href="https://www.w3.org/Protocols/rfc2616/rfc2616.txt">Behold the holy RFC for more about the HTTP protocol</a></li>
+          </ul>
+      </section>
+      <section>
+          <h2>And responses?</h2>
+
+          <p>They're what you get back from a request 😎</p>
+      </section>
+      <section>
+          <h2>Routes</h2>
+          <p>"Routes" define how a server should respond to a certain request at a certain end point or path.</p>
+          <pre>
+              <code contenteditable class ="javascript">
+// app.&lt;HTTP action>
+app.get('/', function (req, res) {
+res.send('Hello World!');
+});
+              </code>
+          </pre>
+      </section>
+      <section>
+          <h2>What we've learned</h2>
+          <ul>
+              <li>What is Node</li>
+              <li>What is npm</li>
+              <li>Used an npm module</li>
+              <li>Built a web server</li>
+          </ul>
+      </section>
+      <section>
+          <h2>Homework</h2>
+          <ul>
+              <li>Review exercises and bonus items</li>
+          </ul>
+          <p>Exercise solutions at <a href="https://github.com/pselle/Intro-to-Node.js-Exercises" alt="Exercises on GitHub">https://github.com/pselle/Intro-to-Node.js-Exercises</a></p>
+          </section>
     </div>
     <footer>
       <div class="copyright">
@@ -614,57 +406,63 @@
   <script src="js/reveal.min.js"></script>
 
   <script>
-    // Full list of configuration options available here:
-    // https://github.com/hakimel/reveal.js#configuration
-    Reveal.initialize({
-      controls: true,
-      progress: true,
-      history: true,
-      center: true,
+  // Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  controls: true,
+  progress: true,
+  history: true,
+  center: true,
 
-      transition: "slide", // none/fade/slide/convex/concave/zoom
+  transition: "slide", // none/fade/slide/convex/concave/zoom
 
-      // Optional reveal.js plugins
-      dependencies: [{
-        src: "lib/js/classList.js",
-        condition: function() {
-          return !document.body.classList;
-        }
-      }, {
-        src: "plugin/markdown/marked.js",
-        condition: function() {
-          return !!document.querySelector("[data-markdown]");
-        }
-      }, {
-        src: "plugin/markdown/markdown.js",
-        condition: function() {
-          return !!document.querySelector("[data-markdown]");
-        }
-      }, {
-        src: "plugin/highlight/highlight.js",
-        async: true,
-        condition: function() {
-          return !!document.querySelector("pre code");
-        },
-        callback: function() {
-          hljs.initHighlightingOnLoad();
-        }
-      }, {
-        src: "plugin/zoom-js/zoom.js",
-        async: true
-      }, {
-        src: "plugin/notes/notes.js",
-        async: true
-      }, {
-        src: "plugin/accessibility-helper/js/accessibility-helper.js",
-        async: true,
-        condition: function() {
-          return !!document.body.classList;
-        }
-      }]
-    });
-  </script>
-
+  // Optional reveal.js plugins
+  dependencies: [
+    {
+      src: "lib/js/classList.js",
+      condition: function() {
+        return !document.body.classList;
+      }
+    },
+    {
+      src: "plugin/markdown/marked.js",
+      condition: function() {
+        return !!document.querySelector("[data-markdown]");
+      }
+    },
+    {
+      src: "plugin/markdown/markdown.js",
+      condition: function() {
+        return !!document.querySelector("[data-markdown]");
+      }
+    },
+    {
+      src: "plugin/highlight/highlight.js",
+      async: true,
+      condition: function() {
+        return !!document.querySelector("pre code");
+      },
+      callback: function() {
+        hljs.initHighlightingOnLoad();
+      }
+    },
+    {
+      src: "plugin/zoom-js/zoom.js",
+      async: true
+    },
+    {
+      src: "plugin/notes/notes.js",
+      async: true
+    },
+    {
+      src: "plugin/accessibility-helper/js/accessibility-helper.js",
+      async: true,
+      condition: function() {
+        return !!document.body.classList;
+      }
+    }
+  ]
+});
+</script>
 </body>
-
 </html>
