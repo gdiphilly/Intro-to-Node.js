@@ -191,6 +191,28 @@
         </ul>
       </section>
       <section>
+        <h2>Writing a Node script</h2>
+      </section>
+      <section>
+        <h3>Node.js API</h3>
+        <p>Node.js contains many useful core modules for us to use, such one to use the file system</p>
+        <pre><code>const fs = require('fs');
+fs.readFile('ourfile.txt', 'utf8', function(err, data) {
+  // do things
+});
+const data = fs.readFileSync('ourfile.txt');
+      </code></pre>
+      </section>
+      <section>
+        <h3>Let's Develop It!<sup>0</sup></h3>
+        <ul>
+          <li>Create a file called script.js</li>
+          <li>Download <a href="https://www.gutenberg.org/files/84/84-0.txt">Frankenstein</a> text file</li>
+          <li>Load the file and count instances of the word "monster," and print to stdout (our terminal)</li>
+          <li>BONUS: What other interesting stats can you calculate for this book? Try using both readFile and readFileSync</li>
+        </ul>
+      </section>
+      <section>
         <h2>What's a package.json?</h2>
         <p><code>package.json</code> is a <strong>JSON</strong> file that defines information about your app, and npm knows about it</p>
       </section>
