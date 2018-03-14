@@ -69,6 +69,30 @@
         </ul>
       </section>
       <section>
+        <h2>Node REPL</h2>
+      </section>
+      <section>
+        <h3>Node REPL</h3>
+        <ul>
+          <li class="fragment">Read Evaluate Print Loop</li>
+          <li class="fragment">What happens when you type "node"!</li>
+          <li class="fragment">Use it to run JS</li>
+          <li class="fragment">AND you have access to your current node_modules</li>
+        </ul>
+      </section>
+      <section>
+        <pre>
+          <code contenteditable class ="javascript">
+$ node
+> 1 + 2
+3
+> const express = require('express');
+...
+> .exit
+            </code>
+        </pre>
+      </section>
+      <section>
           <h2>HTTP Server Basics: Request/Response</h2>
       </section>
       <section>
@@ -93,7 +117,7 @@
               <code contenteditable class ="javascript">
 // app.&lt;HTTP action>
 app.get('/', function (req, res) {
-res.send('Hello World!');
+  res.send('Hello World!');
 });
               </code>
           </pre>
@@ -118,7 +142,7 @@ res.send('Hello World!');
           <pre>
               <code contenteditable class ="javascript">
 exports.index = function (req, res) {
-res.send('Welcome to the GDI Node Workshop!');
+  res.send('Welcome to the GDI Node Workshop!');
 }
               </code>
           </pre>
@@ -138,7 +162,7 @@ res.send('Welcome to the GDI Node Workshop!');
           <pre>
               <code contenteditable class ="javascript">
 exports.index = function (req, res) {
-res.send('Welcome to the GDI Node Workshop!');
+  res.send('Welcome to the GDI Node Workshop!');
 }
               </code>
           </pre>
@@ -186,7 +210,7 @@ app.get('/', homeController.index);
 var path = require('path');
 
 exports.index = function (req, res) {
-res.sendFile(path.join(__dirname, '../public', 'templates', 'index.html'));
+  res.sendFile(path.join(__dirname, '../public', 'templates', 'index.html'));
 }
               </code>
           </pre>
@@ -224,7 +248,7 @@ app.use(express.static('public'));
               <code contenteditable class ="javascript">
 // template.pug
 h1 Welcome
-a(href="somewhere.com") Some cool link!
+  a(href="somewhere.com") Some cool link!
               </code>
           </pre>
       </section>
@@ -245,7 +269,7 @@ app.set('view engine', 'pug');
           <pre>
               <code contenteditable class ="javascript">
 exports.about = function (req, res) {
-res.render('about');
+  res.render('about');
 }
              </code>
           </pre>
